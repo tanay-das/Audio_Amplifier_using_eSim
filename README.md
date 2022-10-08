@@ -2,6 +2,28 @@
 # Mixed Signal Circuit Design and Simulation Marathon
 ## Project Title
 ## Design of a class-D Power Amplifier (Audio Amplifier) 
+## Table of Contents
+  * [Abstract](#abstract)
+  * [Reference Circuit](#reference-circuit)
+  * [Reference Waveform](#reference-waveform)
+  * [Circuit Details](#circuit-details)
+  * [Software Used](#software-used)
+    + [eSim](#esim)
+    + [NgSpice](#ngspice)
+    + [Makerchip](#makerchip)
+    + [Verilator](#verilator)
+  * [Circuit Diagram in eSim](#circuit-diagram-in-esim)
+  * [Verilog Code](#verilog-code)
+  * [Makerchip](#makerchip-1)
+  * [Makerchip Plot](#makerchip-plot)
+  * [Netlist](#netlist)
+  * [NgSpice Plot](#ngspice-plot)
+    + [Input Plot](#input-plot)
+    + [Output Plot](#output-plot)
+  * [Acknowledgements](#acknowledgements)
+  * [References](#references)
+
+
 ## Abstract
 In recent years, class D audio amplifiers are becoming the most feasible solution for lowvoltage low power applications due to their high efficiency property; however, to obtain good linearity for high fidelity systems is still a challenge. This work does not require the triangular carrier signal used in conventional class D audio
 amplifiers. This circuit consists of Controller, Comparator, Power stage, and a output filter. Here power stage will be designed with digital signal using Verilog and the other parts will be designed using analog component, so, it can act as a mixed signal.
