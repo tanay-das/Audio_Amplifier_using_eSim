@@ -1,0 +1,110 @@
+* d:\esim\esim_projects\audio_amplifier\audio_amplifier.cir
+
+.include avsd_opamp.sub
+.include "D:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__inductors.model.spice"
+.lib "D:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130.lib.spice" tt
+.include "D:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__diode_pw2nd_11v0.model.spice"
+.include "D:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__pnp.model.spice"
+.include "D:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__r+c.model.spice"
+.include "D:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__linear.model.spice"
+.include "D:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__diode_pd2nw_11v0.model.spice"
+.include "D:\FOSSEE\eSim\library\sky130_fd_pr\cells\ind_05\sky130_fd_pr__ind_05_125.model.spice"
+
+x2 net-_x2-pad1_ gnd gnd net-_sc10-pad2_ net-_sc11-pad1_ gnd avsd_opamp
+x4 net-_x4-pad1_ gnd net-_sc14-pad1_ net-_sc12-pad1_ net-_sc17-pad1_ gnd avsd_opamp
+x3 net-_x3-pad1_ gnd net-_sc18-pad1_ gnd net-_sc18-pad2_ gnd avsd_opamp
+* u12  net-_sc18-pad2_ net-_u12-pad2_ adc_bridge_1
+* u16  net-_u12-pad2_ net-_u13-pad1_ not_gate
+* u13  net-_u13-pad1_ net-_u10-pad1_ not_gate
+* u10  net-_u10-pad1_ net-_u10-pad2_ not_gate
+* u7  net-_u10-pad2_ net-_u1-pad1_ not_gate
+* u14  net-_u14-pad1_ net-_u11-pad1_ not_gate
+* u11  net-_u11-pad1_ net-_u11-pad2_ not_gate
+* u9  net-_u11-pad2_ net-_u6-pad1_ not_gate
+* u6  net-_u6-pad1_ net-_u2-pad1_ not_gate
+* u15  net-_u12-pad2_ net-_u14-pad1_ not_gate
+* u2  net-_u2-pad1_ net-_sc21-pad1_ dac_bridge_1
+* u1  net-_u1-pad1_ net-_sc20-pad1_ dac_bridge_1
+v3 net-_x2-pad1_ gnd  dc 1.8
+v2 net-_x1-pad1_ gnd  dc 1.8
+v5 net-_x4-pad1_ gnd  dc 1.8
+v4 net-_x3-pad1_ gnd  dc 1.8
+v1  vi gnd sine(1m 1.5 50 0.01m 0.1)
+* u3  vo2 plot_v1
+* u4  vo1 plot_v1
+* u5  vi plot_v1
+xsc1 gnd vo2 sky130_fd_pr__cap_mim_m3_1
+xsc10 net-_sc10-pad1_ net-_sc10-pad2_ sky130_fd_pr__cap_mim_m3_1 
+xsc2 vo1 vo2 sky130_fd_pr__cap_mim_m3_1  
+* s c m o d e
+xsc3 vo1 gnd sky130_fd_pr__cap_mim_m3_1 
+xsc7 gnd net-_sc5-pad1_ gnd sky130_fd_pr__res_generic_nd
+xsc4 net-_sc4-pad1_ vo2 gnd sky130_fd_pr__res_generic_nd 
+xsc5 net-_sc5-pad1_ vo1 gnd sky130_fd_pr__res_generic_nd
+x1 net-_x1-pad1_ gnd net-_sc5-pad1_ net-_sc4-pad1_ first_op gnd avsd_opamp
+xsc6 net-_sc4-pad1_ vi gnd sky130_fd_pr__res_generic_nd
+xsc8 first_op net-_sc4-pad1_ gnd sky130_fd_pr__res_generic_nd
+xsc9 net-_sc10-pad1_ first_op gnd sky130_fd_pr__res_generic_nd
+xsc11 net-_sc11-pad1_ net-_sc10-pad2_ gnd sky130_fd_pr__res_generic_nd
+xsc12 net-_sc12-pad1_ net-_sc11-pad1_ gnd sky130_fd_pr__res_generic_nd 
+xsc13 net-_sc12-pad1_ vo2 gnd sky130_fd_pr__res_generic_nd
+xsc14 net-_sc14-pad1_ vo1 gnd sky130_fd_pr__res_generic_nd  
+xsc17 net-_sc17-pad1_ net-_sc12-pad1_ gnd sky130_fd_pr__res_generic_nd 
+xsc15 net-_sc14-pad1_ first_op gnd sky130_fd_pr__res_generic_nd
+xsc18 net-_sc18-pad1_ net-_sc18-pad2_ gnd sky130_fd_pr__res_generic_nd
+xsc19 net-_sc17-pad1_ net-_sc18-pad1_ gnd sky130_fd_pr__res_generic_nd 
+xsc16 gnd net-_sc14-pad1_ gnd sky130_fd_pr__res_generic_nd  
+xsc20 net-_sc20-pad1_ vo2 mid 0 sky130_fd_pr__ind_05_125
+* u8  first_op plot_v1
+xsc21 net-_sc21-pad1_ vo1  mid 0 sky130_fd_pr__ind_05_125
+a1 [net-_sc18-pad2_ ] [net-_u12-pad2_ ] u12
+a2 [net-_u12-pad2_ ] [net-_u13-pad1_ ] u16
+a3 [net-_u13-pad1_ ] [net-_u10-pad1_ ] u13
+a4 [net-_u10-pad1_ ] [net-_u10-pad2_ ] u10
+a5 [net-_u10-pad2_ ] [net-_u1-pad1_ ] u7
+a6 [net-_u14-pad1_ ] [net-_u11-pad1_ ] u14
+a7 [net-_u11-pad1_ ] [net-_u11-pad2_ ] u11
+a8 [net-_u11-pad2_ ] [net-_u6-pad1_ ] u9
+a9 [net-_u6-pad1_ ] [net-_u2-pad1_ ] u6
+a10 [net-_u12-pad2_ ] [net-_u14-pad1_ ] u15
+a11 [net-_u2-pad1_ ] [net-_sc21-pad1_ ] u2
+a12 [net-_u1-pad1_ ] [net-_sc20-pad1_ ] u1
+* Schematic Name:                             adc_bridge_1, NgSpice Name: adc_bridge
+.model u12 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 ) 
+* Schematic Name:                             not_gate, NgSpice Name: not_gate
+.model u16 not_gate(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             not_gate, NgSpice Name: not_gate
+.model u13 not_gate(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             not_gate, NgSpice Name: not_gate
+.model u10 not_gate(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             not_gate, NgSpice Name: not_gate
+.model u7 not_gate(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             not_gate, NgSpice Name: not_gate
+.model u14 not_gate(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             not_gate, NgSpice Name: not_gate
+.model u11 not_gate(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             not_gate, NgSpice Name: not_gate
+.model u9 not_gate(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             not_gate, NgSpice Name: not_gate
+.model u6 not_gate(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             not_gate, NgSpice Name: not_gate
+.model u15 not_gate(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             dac_bridge_1, NgSpice Name: dac_bridge
+.model u2 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 ) 
+* Schematic Name:                             dac_bridge_1, NgSpice Name: dac_bridge
+.model u1 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 ) 
+.tran 0.1e-00 1e-00 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+set color2 = red
+plot v(vo1)
+set color2 = blue
+plot v(vi) 
+
+
+.endc
+.end

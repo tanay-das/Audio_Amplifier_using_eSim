@@ -1,0 +1,57 @@
+* D:\eSim\eSim_Projects\Audio_Amplifier\Audio_Amplifier.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: 10/07/22 19:58:14
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+X2  Net-_X2-Pad1_ GND GND Net-_SC10-Pad2_ Net-_SC11-Pad1_ GND avsd_opamp		
+X4  Net-_X4-Pad1_ GND Net-_SC14-Pad1_ Net-_SC12-Pad1_ Net-_SC17-Pad1_ GND avsd_opamp		
+X3  Net-_X3-Pad1_ GND Net-_SC18-Pad1_ GND Net-_SC18-Pad2_ GND avsd_opamp		
+U12  Net-_SC18-Pad2_ Net-_U12-Pad2_ adc_bridge_1		
+U16  Net-_U12-Pad2_ Net-_U13-Pad1_ not_gate		
+U13  Net-_U13-Pad1_ Net-_U10-Pad1_ not_gate		
+U10  Net-_U10-Pad1_ Net-_U10-Pad2_ not_gate		
+U7  Net-_U10-Pad2_ Net-_U1-Pad1_ not_gate		
+U14  Net-_U14-Pad1_ Net-_U11-Pad1_ not_gate		
+U11  Net-_U11-Pad1_ Net-_U11-Pad2_ not_gate		
+U9  Net-_U11-Pad2_ Net-_U6-Pad1_ not_gate		
+U6  Net-_U6-Pad1_ Net-_U2-Pad1_ not_gate		
+U15  Net-_U12-Pad2_ Net-_U14-Pad1_ not_gate		
+U2  Net-_U2-Pad1_ Net-_SC21-Pad1_ dac_bridge_1		
+U1  Net-_U1-Pad1_ Net-_SC20-Pad1_ dac_bridge_1		
+v3  Net-_X2-Pad1_ GND DC		
+v2  Net-_X1-Pad1_ GND DC		
+v5  Net-_X4-Pad1_ GND DC		
+v4  Net-_X3-Pad1_ GND DC		
+v1  vi GND sine		
+U3  vo2 plot_v1		
+U4  vo1 plot_v1		
+U5  vi plot_v1		
+SC1  GND vo2 sky130_fd_pr__cap_mim_m3_1 		
+SC10  Net-_SC10-Pad1_ Net-_SC10-Pad2_ sky130_fd_pr__cap_mim_m3_1 
+SC2  vo1 vo2 sky130_fd_pr__cap_mim_m3_1 
+scmode1  SKY130mode		
+SC3  vo1 GND sky130_fd_pr__cap_mim_m3_1		
+SC7  GND Net-_SC5-Pad1_ GND sky130_fd_pr__res_generic_nd 
+SC4  Net-_SC4-Pad1_ vo2 GND sky130_fd_pr__res_generic_nd 
+SC5  Net-_SC5-Pad1_ vo1 GND sky130_fd_pr__res_generic_nd 
+X1  Net-_X1-Pad1_ GND Net-_SC5-Pad1_ Net-_SC4-Pad1_ first_op GND avsd_opamp
+SC6  Net-_SC4-Pad1_ vi GND sky130_fd_pr__res_generic_nd 
+SC8  first_op Net-_SC4-Pad1_ GND sky130_fd_pr__res_generic_nd 
+SC9  Net-_SC10-Pad1_ first_op GND sky130_fd_pr__res_generic_nd		
+SC11  Net-_SC11-Pad1_ Net-_SC10-Pad2_ GND sky130_fd_pr__res_generic_nd		
+SC12  Net-_SC12-Pad1_ Net-_SC11-Pad1_ GND sky130_fd_pr__res_generic_nd 
+SC13  Net-_SC12-Pad1_ vo2 GND sky130_fd_pr__res_generic_nd	
+SC14  Net-_SC14-Pad1_ vo1 GND sky130_fd_pr__res_generic_nd		
+SC17  Net-_SC17-Pad1_ Net-_SC12-Pad1_ GND sky130_fd_pr__res_generic_nd 
+SC15  Net-_SC14-Pad1_ first_op GND sky130_fd_pr__res_generic_nd		
+SC18  Net-_SC18-Pad1_ Net-_SC18-Pad2_ GND sky130_fd_pr__res_generic_nd		
+SC19  Net-_SC17-Pad1_ Net-_SC18-Pad1_ GND sky130_fd_pr__res_generic_nd		
+SC16  GND Net-_SC14-Pad1_ GND sky130_fd_pr__res_generic_nd		
+SC20  Net-_SC20-Pad1_ vo2 sky130_fd_pr__ind_05_125 		
+U8  first_op plot_v1		
+SC21  Net-_SC21-Pad1_ vo1 sky130_fd_pr__ind_05_125 		
+
+.end
